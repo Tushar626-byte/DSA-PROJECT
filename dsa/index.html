@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="profile-pic"></div>
+            <h3>Hello Beginner</h3>
+        </div>
+        <div class="nav-item active">Overview</div>
+        <div class="nav-item">Courses</div>
+        <div class="nav-item">Study Materials</div>
+        <div class="nav-item">Classes</div>
+        <div class="nav-item">Projects</div>
+        <div class="nav-item">Reports</div>
+        <div class="nav-item">Settings</div>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <div class="nav-links">
+                <a href="#" class="active">Home</a>
+                <a href="#">About Us</a>
+                <a href="#">Curriculum</a>
+                <a href="#">Mentors</a>
+            </div>
+            <div class="user-actions">
+                <button class="profile-btn">Profile</button>
+            </div>
+        </div>
+
+        <div class="dashboard-grid">
+            <div class="left-section">
+                <div class="chart-container">
+                    <canvas id="progressChart"></canvas>
+                </div>
+                
+                <div class="courses-container">
+                    <div class="course-card green">
+                        <h3>Introduction to UI/UX Design</h3>
+                        <p>32 students</p>
+                    </div>
+                    <div class="course-card orange">
+                        <h3>VR AR Fundamentals</h3>
+                        <p>28 students</p>
+                    </div>
+                    <div class="course-card blue">
+                        <h3>Interaction Design</h3>
+                        <p>25 students</p>
+                    </div>
+                </div>
+
+                <div class="projects-section">
+                    <div class="project-card">
+                        <h3>Designing Learning Portal</h3>
+                        <p>Project details and progress go here</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-section">
+                <div class="homework-section">
+                    <h3>Homework</h3>
+                    <div class="homework-item">
+                        <input type="checkbox" id="hw1">
+                        <label for="hw1">3 Days UI/UX Project</label>
+                    </div>
+                    <div class="homework-item">
+                        <input type="checkbox" id="hw2">
+                        <label for="hw2">Design Learning Page</label>
+                    </div>
+                    <div class="homework-item">
+                        <input type="checkbox" id="hw3" checked>
+                        <label for="hw3">Set up your projects</label>
+                    </div>
+                </div>
+
+                <div class="events-section">
+                    <h3>Upcoming Events</h3>
+                    <div class="event-card">
+                        <div class="event-date">Feb 2024</div>
+                        <div class="event-title">Design Project</div>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-date">Feb 2024</div>
+                        <div class="event-title">Team Presentation</div>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-date">Feb 2024</div>
+                        <div class="event-title">Live Class</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
