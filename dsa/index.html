@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Dashboard</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
 </head>
 <body>
     <div class="sidebar">
@@ -13,13 +12,34 @@
             <div class="profile-pic"></div>
             <h3>Hello Beginner</h3>
         </div>
-        <div class="nav-item active">Overview</div>
-        <div class="nav-item">Courses</div>
-        <div class="nav-item">Study Materials</div>
-        <div class="nav-item">Classes</div>
-        <div class="nav-item">Projects</div>
-        <div class="nav-item">Reports</div>
-        <div class="nav-item">Settings</div>
+
+        <div class="nav-item active" data-page="overview">
+            Overview
+        </div>
+
+        <div class="nav-item" data-page="courses">
+            Courses
+        </div>
+
+        <div class="nav-item">
+            Study Materials
+        </div>
+
+        <div class="nav-item">
+            Classes
+        </div>
+
+        <div class="nav-item">
+            Projects
+        </div>
+
+        <div class="nav-item">
+            Reports
+        </div>
+
+        <div class="nav-item">
+            Settings
+        </div>
     </div>
 
     <div class="main-content">
@@ -30,76 +50,141 @@
                 <a href="#">Curriculum</a>
                 <a href="#">Mentors</a>
             </div>
+
             <div class="user-actions">
                 <button class="profile-btn">Profile</button>
             </div>
         </div>
 
-        <div class="dashboard-grid">
-            <div class="left-section">
-                <div class="chart-container">
-                    <canvas id="progressChart"></canvas>
-                </div>
-                
-                <div class="courses-container">
-                    <div class="course-card green">
-                        <h3>Introduction to UI/UX Design</h3>
-                        <p>32 students</p>
+        <!-- Overview Page Content -->
+        <div class="page-content" id="overview-page">
+            <div class="dashboard-grid">
+                <div class="left-section">
+                    <div class="chart-container">
+                        <canvas id="progressChart"></canvas>
                     </div>
-                    <div class="course-card orange">
-                        <h3>VR AR Fundamentals</h3>
-                        <p>28 students</p>
+
+                    <div class="courses-container">
+                        <div class="course-card green">
+                            <h3>Introduction to UI/UX Design</h3>
+                            <p>32 students</p>
+                        </div>
+
+                        <div class="course-card orange">
+                            <h3>VR AR Fundamentals</h3>
+                            <p>28 students</p>
+                        </div>
+
+                        <div class="course-card blue">
+                            <h3>Interaction Design</h3>
+                            <p>25 students</p>
+                        </div>
                     </div>
-                    <div class="course-card blue">
-                        <h3>Interaction Design</h3>
-                        <p>25 students</p>
+
+                    <div class="projects-section">
+                        <div class="project-card">
+                            <h3>Designing Learning Portal</h3>
+                            <p>Project details and progress go here</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="projects-section">
-                    <div class="project-card">
-                        <h3>Designing Learning Portal</h3>
-                        <p>Project details and progress go here</p>
+                <div class="right-section">
+                    <div class="homework-section">
+                        <h3>Homework</h3>
+                        <div class="homework-item">
+                            <input type="checkbox">
+                            <span>3 Days UI/UX Project</span>
+                        </div>
+                        <div class="homework-item">
+                            <input type="checkbox">
+                            <span>Design Learning Page</span>
+                        </div>
+                        <div class="homework-item">
+                            <input type="checkbox">
+                            <span>Set up your projects</span>
+                        </div>
+                    </div>
+
+                    <div class="events-section">
+                        <h3>Upcoming Events</h3>
+                        <div class="event-card">
+                            <div class="event-date">Feb 2024</div>
+                            <div class="event-title">Design Project</div>
+                        </div>
+                        <div class="event-card">
+                            <div class="event-date">Feb 2024</div>
+                            <div class="event-title">Team Presentation</div>
+                        </div>
+                        <div class="event-card">
+                            <div class="event-date">Feb 2024</div>
+                            <div class="event-title">Live Class</div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="right-section">
-                <div class="homework-section">
-                    <h3>Homework</h3>
-                    <div class="homework-item">
-                        <input type="checkbox" id="hw1">
-                        <label for="hw1">3 Days UI/UX Project</label>
-                    </div>
-                    <div class="homework-item">
-                        <input type="checkbox" id="hw2">
-                        <label for="hw2">Design Learning Page</label>
-                    </div>
-                    <div class="homework-item">
-                        <input type="checkbox" id="hw3" checked>
-                        <label for="hw3">Set up your projects</label>
+        <!-- Courses Page Content -->
+        <div class="page-content" id="courses-page" style="display: none;">
+            <div class="course-detail-container">
+                <div class="course-header">
+                    <h2>Introduction to UI/UX Design</h2>
+                    <button class="view-button">View</button>
+                </div>
+
+                <div class="video-player">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polygon points="10 8 16 12 10 16 10 8"></polygon>
+                    </svg>
+                </div>
+
+                <div class="chapters-container">
+                    <h3>Chapters</h3>
+                    <div class="chapters-grid">
+                        <div class="chapter-card">Chapter 1</div>
+                        <div class="chapter-card">Chapter 2</div>
+                        <div class="chapter-card">Chapter 3</div>
+                        <div class="chapter-card">Chapter 4</div>
+                        <div class="chapter-card">Chapter 5</div>
+                        <div class="chapter-card">Chapter 6</div>
                     </div>
                 </div>
 
-                <div class="events-section">
-                    <h3>Upcoming Events</h3>
-                    <div class="event-card">
-                        <div class="event-date">Feb 2024</div>
-                        <div class="event-title">Design Project</div>
+                <div class="content-grid">
+                    <div class="transcript-section">
+                        <h3>Transcript</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Cras porta dui sit amet libero fermentum, vitae accumsan ipsum hendrerit.</p>
+                        
+                        <div class="button-group">
+                            <button class="nav-button secondary-button">Previous Page</button>
+                            <button class="nav-button primary-button">Continue</button>
+                            <button class="nav-button secondary-button">Next Page</button>
+                        </div>
                     </div>
-                    <div class="event-card">
-                        <div class="event-date">Feb 2024</div>
-                        <div class="event-title">Team Presentation</div>
-                    </div>
-                    <div class="event-card">
-                        <div class="event-date">Feb 2024</div>
-                        <div class="event-title">Live Class</div>
+
+                    <div class="homework-section">
+                        <h3>Homework</h3>
+                        <div class="homework-item">
+                            <span>Create a Design Persona</span>
+                            <div class="completion-indicator completed"></div>
+                        </div>
+                        <div class="homework-item">
+                            <span>Design a Landing Page</span>
+                            <div class="completion-indicator"></div>
+                        </div>
+                        <div class="homework-item">
+                            <span>Set up your project</span>
+                            <div class="completion-indicator"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

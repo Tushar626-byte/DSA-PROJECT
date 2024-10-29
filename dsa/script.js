@@ -1,84 +1,60 @@
 // Initialize Chart.js
 document.addEventListener('DOMContentLoaded', function() {
-    const ctx = document.getElementById('progressChart').getContext('2d');
-    
-    const chart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
-            datasets: [{
-                label: 'Progress',
-                data: [65, 75, 85, 70, 75],
-                borderColor: '#4CAF50',
-                tension: 0.4,
-                fill: false
-            },
-            {
-                label: 'Attendance',
-                data: [80, 85, 75, 90, 85],
-                borderColor: '#2196F3',
-                tension: 0.4,
-                fill: false
-            },
-            {
-                label: 'Performance',
-                data: [75, 70, 80, 85, 80],
-                borderColor: '#FFC107',
-                tension: 0.4,
-                fill: false
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    position: 'bottom',
-                    labels: {
-                        padding: 20
-                    }
-                },
-                tooltip: {
-                    mode: 'index',
-                    intersect: false
-                }
-            },
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    max: 100,
-                    ticks: {
-                        stepSize: 20
-                    }
-                }
-            },
-            interaction: {
-                intersect: false,
-                mode: 'nearest'
+    // Keep existing chart initialization code...
+
+    // Page navigation functionality
+    const pages = {
+        'overview': document.getElementById('overview-page'),
+        'courses': document.getElementById('courses-page')
+    };
+
+    // Show overview page by default
+    pages['overview'].style.display = 'block';
+
+    // Add click event listeners to nav items
+    document.querySelectorAll('.nav-item').forEach(item => {
+        item.addEventListener('click', function() {
+            // Remove active class from all nav items
+            document.querySelectorAll('.nav-item').forEach(navItem => {
+                navItem.classList.remove('active');
+            });
+            
+            // Add active class to clicked item
+            this.classList.add('active');
+
+            // Hide all pages
+            Object.values(pages).forEach(page => {
+                page.style.display = 'none';
+            });
+
+            // Show selected page
+            const pageToShow = this.getAttribute('data-page');
+            if (pages[pageToShow]) {
+                pages[pageToShow].style.display = 'block';
             }
-        }
-    });
-});
-
-// Add click event listeners to nav items
-document.querySelectorAll('.nav-item').forEach(item => {
-    item.addEventListener('click', function() {
-        // Remove active class from all nav items
-        document.querySelectorAll('.nav-item').forEach(navItem => {
-            navItem.classList.remove('active');
         });
-        // Add active class to clicked item
-        this.classList.add('active');
     });
-});
 
-// Add functionality to homework checkboxes
-document.querySelectorAll('.homework-item input[type="checkbox"]').forEach(checkbox => {
-    checkbox.addEventListener('change', function() {
-        const homeworkItem = this.closest('.homework-item');
-        if (this.checked) {
-            homeworkItem.style.opacity = '0.7';
-        } else {
-            homeworkItem.style.opacity = '1';
-        }
+    // Add functionality to homework checkboxes
+    document.querySelectorAll('.homework-item input[type="checkbox"]').forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            const homeworkItem = this.closest('.homework-item');
+            if (this.checked) {
+                homeworkItem.style.opacity = '0.7';
+            } else {
+                homeworkItem.style.opacity = '1';
+            }
+        });
+    });
+
+    // Add hover effect to chapter cards
+    document.querySelectorAll('.chapter-card').forEach(card => {
+        card.addEventListener('mouseover', function() {
+            this.style.transform = 'translateY(-2px)';
+        });
+        
+        card.addEventListener('mouseout', function() {
+            this.style.transform = 'translateY(0)';
+        });
     });
 });
